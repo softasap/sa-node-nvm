@@ -1,0 +1,12 @@
+---
+# defaults file for sa-node-nvm
+  root_dir: "{{ role_path }}"
+  role_dir: "{{ role_path }}"
+  deploy_user: "{{ansible_user_id}}"
+
+  nvm_version: 0.31.1
+
+  option_install_nodejs_with_nvm: false
+  option_integrate_w_bash: false
+  option_integrate_w_zsh: false
+  nodejs_version: "4.x" # 0.10 0.12 4.x 5.x
