@@ -20,7 +20,7 @@
 
   - name: NVM | Install nvm {{ nvm_version }}
     become: "{{ deploy_user }}"
-    git: repo=https://github.com/creationix/nvm.git dest=~/.nvm version={{ nvm_version }}
+    git: repo=https://github.com/creationix/nvm.git dest=~/.nvm version=v{{ nvm_version }}
     when: nvm_present | failed
     tags:
       - nvm
@@ -60,6 +60,6 @@
     args:
       executable: /bin/bash
     become: "{{ deploy_user }}"
-    when: default_nodejs_version_ok | failed and nvm_present | failed    
+    when: default_nodejs_version_ok | failed and nvm_present | failed
     tags:
       - nvm
