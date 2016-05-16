@@ -41,3 +41,16 @@ Usage example:
 </pre>
 
 
+Example of using nvm in further steps:
+
+- name: Detect npm
+  shell: 'source /home/{{deploy_user}}/.profile && dirname "`which npm`"'
+  args:
+     executable: /bin/bash
+  register: npm_path_detected_raw
+
+- name: WSI Workplace | Install bower
+  npm: name=bower state=present version="{{bower.version}}" global=yes
+  become: "{{npm_is_global}}"
+  environment:
+    PATH: "{{npm_path_detected}}:{{ ansible_env.PATH }}"       # can be different depending on nvm version
