@@ -6,7 +6,7 @@
 
   nvm_version: 0.31.1
 
-  option_nodejs_install_with_nvm: false
+  option_install_nodejs_with_nvm: false
   option_nodejs_link_globally: false
   option_integrate_w_bash: false
   option_integrate_w_zsh: false
