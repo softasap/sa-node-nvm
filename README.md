@@ -54,3 +54,13 @@ Example of using nvm in further steps:
   become: "{{npm_is_global}}"
   environment:
     PATH: "{{npm_path_detected}}:{{ ansible_env.PATH }}"       # can be different depending on nvm version
+
+
+Copyright and license
+---------------------
+
+
+Code licensed under the [BSD 3 clause] (https://opensource.org/licenses/BSD-3-Clause) or the [MIT License] (http://opensource.org/licenses/MIT).
+
+Subscribe for roles updates at [FB] (https://www.facebook.com/SoftAsap/)
+
