@@ -10,7 +10,7 @@ nodejs_version: "0.10.38"  # Could be exact node version
 
 Usage example:
 
-<pre>
+```YAML
 
 
      - {
@@ -19,9 +19,9 @@ Usage example:
        }
 
 
-</pre>
+```
 
-<pre>
+```YAML
 
      - {
 
@@ -38,10 +38,12 @@ Usage example:
 
        }
 
-</pre>
+```
 
 
 Example of using nvm in further steps:
+
+```YAML
 
 - name: Detect npm
   shell: 'source /home/{{deploy_user}}/.profile && dirname "`which npm`"'
@@ -54,6 +56,8 @@ Example of using nvm in further steps:
   become: "{{npm_is_global}}"
   environment:
     PATH: "{{npm_path_detected}}:{{ ansible_env.PATH }}"       # can be different depending on nvm version
+
+```
 
 
 Copyright and license
