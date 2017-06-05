@@ -1,0 +1,17 @@
+[submodule "roles/sa-box-bootstrap"]
+        path = roles/sa-box-bootstrap
+        url = https://github.com/softasap/sa-box-bootstrap.git
+[submodule "roles/sa-node-nvm"]
+        path = roles/sa-node-nvm
+        url = https://github.com/softasap/sa-node-nvm.git
+[submodule "roles/sa-nginx"]
+        path = roles/sa-nginx
+        url = https://github.com/softasap/sa-nginx.git
+[submodule "roles/sa-include"]
+        path = roles/sa-include
+        url = https://github.com/softasap/sa-include.git
+[submodule "roles/sa-monit"]
+        path = roles/sa-monit
+        url = https://github.com/softasap/sa-monit.git
+
+

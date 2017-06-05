@@ -1,0 +1,28 @@
+# CI/CD managed
+# Do NOT modify this file by hand!
+
+[Unit]
+Description=Your App
+After=network.target
+Requires=network.target
+
+[Service]
+Environment="HOME={{install_dir_api}}"
+ExecStart={{npm_path_detected}}/node -- server {{extra_api_params}}
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier={{api_upstart_name}}
+
+WorkingDirectory={{install_dir_api}}
+PIDFile=/var/run/yourapp/{{api_upstart_name}}.pid
+
+User={{ansible_user_id}}
+Group={{ansible_user_id}}
+
+Restart=always
+RestartSec=5
+TimeoutSec=5
+
+[Install]
+WantedBy=multi-user.target

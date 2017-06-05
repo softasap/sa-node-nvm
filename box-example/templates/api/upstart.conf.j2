@@ -1,0 +1,13 @@
+description "Your App"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+respawn
+console log
+setuid {{ansible_user_id}}
+setgid {{ansible_user_id}}
+
+env HOME={{install_dir_api}}
+
+exec start-stop-daemon --chdir ${HOME} --start --make-pidfile --pid=/var/run/yourapp/{{api_upstart_name}}.pid --exec {{npm_path_detected}}/node -- server {{extra_api_params}}

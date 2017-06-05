@@ -1,0 +1,61 @@
+---
+- hosts: newserver
+  gather_facts: False
+
+  vars:
+    - root_dir: ..
+    - user_authorized_keys:
+        - "~/.ssh/id_rsa.pub"
+
+  pre_tasks:
+    - debug: msg="Pre tasks section"
+
+    - name: ANSIBLE PYTHON | install python 2
+      raw: |
+            if [ ! -e "/usr/bin/python" ]
+            then
+                apt -qqy update && apt install -qy python-minimal
+            fi
+
+      become: yes
+
+    - name: gather facts
+      setup:
+
+    - debug: var="hostvars"
+
+    - name:  UNPRIVILEGED USERS | Get acl dependency (ansible unprivileged user operations magic)
+      package: name="acl"
+      become: yes
+
+
+  roles:
+     - {
+         role: "sa-box-bootstrap",
+         deploy_user: "appuser",
+         deploy_user_authorized_keys: "{{user_authorized_keys}}",
+         option_enforce_ssh_keys_login: yes,
+         option_file2ban: false
+       }
+     - {
+         role: "sa-monit",
+         monit_presets: ["basic", "basic_nginx"],
+         monit_gui_password: monit
+       }
+     - {
+         role: "sa-nginx"
+       }
+     - {
+         role: "sa-node-nvm",
+         nvm_version: "0.31.2",
+         nodejs_version: "0.12",
+         deploy_user: "appuser",
+         option_nodejs_install_with_nvm: true,
+         tags: ["create"]
+       }
+
+
+
+  tasks:
+
+    - debug: msg="Tasks section"
