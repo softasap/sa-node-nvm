@@ -1,0 +1,14 @@
+---
+- hosts: www
+  vars:
+    - root_dir: "{{playbook_dir}}"
+
+  vars_files:
+    - ./demoapp_vars.yml
+
+  pre_tasks:
+    - debug: msg="Pre tasks section"
+
+  tasks:
+    - debug: msg="Tasks section"
+    - include: "{{root_dir}}/demosite.yml"

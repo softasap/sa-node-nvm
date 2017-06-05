@@ -5,6 +5,7 @@
   deploy_user: "{{ansible_user_id}}"
 
   nvm_version: 0.31.1
+  nvm_home: "/home/{{deploy_user}}"
 
   option_nodejs_install_with_nvm: false
   option_nodejs_link_globally: false

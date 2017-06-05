@@ -1,0 +1,15 @@
+  env: staging
+  deploy_user: "{{ansible_user_id}}"
+
+  install_dir: /opt/yourapp
+  install_dir_api: "{{install_dir}}/server"
+  install_dir_client: "{{install_dir}}/client"
+
+  extra_api_params: ""
+  api_port: 3000
+  api_upstart_name: yourapp-api
+
+  app_domain: yourapp.yourdomain.dev
+
+  log_file_path: /opt/yourapp/log
+  log_file_name: api.log

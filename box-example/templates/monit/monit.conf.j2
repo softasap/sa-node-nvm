@@ -1,0 +1,9 @@
+#!monit
+
+check process {{item.api_upstart_name}} with pidfile "/var/run/yourapp/{{item.api_upstart_name}}.pid"
+    start program = "{% if ansible_service_mgr == "systemd" %}/usr/bin/systemctl start{% else %}/sbin/start{% endif %} {{item.api_upstart_name}}"
+    stop program  = "{% if ansible_service_mgr == "systemd" %}/usr/bin/systemctl stop{% else %}/sbin/stop{% endif %} {{item.api_upstart_name}}"
+    if failed port {{item.port_number}} protocol HTTP
+        request /api
+        with timeout 10 seconds
+        then restart
