@@ -31,7 +31,7 @@ Usage example:
 
          deploy_user: "{{ansible_user_id}}",
 
-         option_install_nodejs_with_nvm: true,
+         option_nodejs_install_with_nvm: true,
          nodejs_version: "0.12"
          option_integrate_w_bash: true,
          option_integrate_w_zsh: true
@@ -92,4 +92,3 @@ Code licensed under the [BSD 3 clause] (https://opensource.org/licenses/BSD-3-Cl
 Subscribe for roles updates at [FB] (https://www.facebook.com/SoftAsap/)
 
 Join gitter discussion channel at [Gitter](https://gitter.im/softasap)
-
