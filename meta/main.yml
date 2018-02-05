@@ -31,15 +31,19 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+    - name: Windows
+      versions:
+        - all
 
   galaxy_tags:
-    - nvm 
+    - nvm
     - nodejs
     - node 0.10
     - node 0.12
     - node 4.x
-    - node 5.x 
+    - node 5.x
     - ubuntu
+    - windows
   #platforms:
   #- name: EL
   #  versions:

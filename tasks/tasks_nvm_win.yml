@@ -1,0 +1,19 @@
+---
+
+  - name: NVM | Install package
+    win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: "nvm.portable"
+      DependsOn: "[cChocoInstaller]installChoco"
+    tags:
+      -nvm
+
+  - name: NVM | Install node version
+    win_shell: "nvm install {{ nodejs_version }}"
+    tags:
+      -nvm
+
+  - name: NVM | alias default
+    win_shell: "nvm alias default {{ nodejs_version }}"
+    tags:
+      -nvm

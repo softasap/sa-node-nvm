@@ -1,0 +1,10 @@
+- src: softasap.sa-box-bootstrap
+  name: sa-box-bootstrap
+- src: softasap.sa-node-nvm
+  name: sa-node-nvm
+- src: softasap.sa-nginx
+  name: sa-nginx
+- src: softasap.sa-include
+  name: sa-include
+- src: softasap.sa-monit
+  name: sa-monit
