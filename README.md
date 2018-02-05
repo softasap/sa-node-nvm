@@ -92,6 +92,8 @@ roles:
 
 ```
 
+Don't forget, that this is not the exact copy of linux nvm, thus command switches differ.
+In particular - activating nvm on windows is `nvm on`
 
 Usage with ansible galaxy workflow
 ----------------------------------
