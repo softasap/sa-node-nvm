@@ -2,6 +2,7 @@ sa-node-nvm
 ===========
 
 [![Build Status](https://travis-ci.org/softasap/sa-node-nvm.svg?branch=master)](https://travis-ci.org/softasap/sa-node-nvm)
+[![Includes support for Windows with PS5](https://img.shields.io/badge/Windows-Friendly-blue.svg)](https://img.shields.io/badge/Windows-Friendly-blue.svg)
 
 Installs nvm node version manager, and, optionally nodejs with it. Suitable for development. For binary installation see sa-node role.
 
@@ -60,6 +61,40 @@ Example of using nvm in further steps:
 ```
 
 
+# Windows support
+
+For windows support we expect, that box is prepared for provisioning with ansible (best used with role  https://github.com/softasap/sa-box-bootstrap-win ,
+but if you configured the same setup manually will work too )
+
+Example of the typical windows play:
+
+```YAML
+
+vars:
+  - root_dir: ..
+
+  - ansible_connection: winrm
+  - ansible_ssh_port: 5986
+  - ansible_winrm_server_cert_validation: ignore
+  - ansible_winrm_transport: ssl
+
+
+pre_tasks:
+  - debug: msg="Pre tasks section"
+
+  - name: gather facts
+    setup:
+
+roles:
+   - {
+       role: "sa-node-nvm"
+     }
+
+```
+
+Don't forget, that this is not the exact copy of linux nvm, thus command switches differ.
+In particular - activating nvm on windows is `nvm on`
+
 Usage with ansible galaxy workflow
 ----------------------------------
 
@@ -86,9 +121,14 @@ Please adjust the path accordingly.
 Copyright and license
 ---------------------
 
+Code is dual licensed under the [BSD 3 clause] (https://opensource.org/licenses/BSD-3-Clause) and the [MIT License] (http://opensource.org/licenses/MIT). Choose the one that suits you best.
 
-Code licensed under the [BSD 3 clause] (https://opensource.org/licenses/BSD-3-Clause) or the [MIT License] (http://opensource.org/licenses/MIT).
+Reach us:
 
 Subscribe for roles updates at [FB] (https://www.facebook.com/SoftAsap/)
 
 Join gitter discussion channel at [Gitter](https://gitter.im/softasap)
+
+Discover other roles at  http://www.softasap.com/roles/registry_generated.html
+
+visit our blog at http://www.softasap.com/blog/archive.html

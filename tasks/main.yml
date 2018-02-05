@@ -2,3 +2,7 @@
 # tasks file for sa-node-nvm
 
   - include: tasks_nvm.yml
+    when: ansible_os_family != "Windows"
+
+  - include: tasks_nvm_win.yml
+    when: ansible_os_family == "Windows"  
