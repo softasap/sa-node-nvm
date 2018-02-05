@@ -32,7 +32,7 @@ Usage example:
 
          deploy_user: "{{ansible_user_id}}",
 
-         option_install_nodejs_with_nvm: true,
+         option_nodejs_install_with_nvm: true,
          nodejs_version: "0.12"
          option_integrate_w_bash: true,
          option_integrate_w_zsh: true
