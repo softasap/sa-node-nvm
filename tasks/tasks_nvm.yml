@@ -7,22 +7,21 @@
       - nodejs
 
   - name: NVM | Install dependencies
-    package: name={{ item }}
-    with_items:
-      - curl
-      - git
+    package:
+      name:
+        - curl
+        - git
     become: true
     when: nvm_present is failed
     tags:
       - nvm
 
   - name: NVM | Install OS specific dependencies
-    apt:
-     pkg:
+    package:
+     name:
         - build-essential
         - libssl-dev
      update_cache: yes
-    with_items:
     become: true
     when: nvm_present is failed and ansible_os_family == "Debian"
     tags:
