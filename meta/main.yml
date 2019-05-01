@@ -14,7 +14,7 @@ galaxy_info:
   # - Apache
   # - CC-BY
   license: MIT
-  min_ansible_version: 1.9.4
+  min_ansible_version: 2.6.0
   #
   # Below are all platforms currently available. Just uncomment
   # the ones that apply to your role. If you don't see your
@@ -25,6 +25,7 @@ galaxy_info:
       versions:
         - trusty
         - xenial
+        - bionic
     - name: Fedora
       versions:
         - 25
@@ -38,10 +39,13 @@ galaxy_info:
   galaxy_tags:
     - nvm
     - nodejs
-    - node 0.10
-    - node 0.12
-    - node 4.x
-    - node 5.x
+    - node010
+    - node012
+    - node4x
+    - node5x
+    - node6x
+    - node7x
+    - node8x
     - ubuntu
     - windows
   #platforms:

@@ -39,10 +39,10 @@
   - set_fact:
       npm_path_detected: "{{ npm_path_detected_raw.stdout }}"
       npm_is_global: "{{npm_path_detected_raw.stdout.find('.nvm') == -1}}"
-    when: not npm_path_detected_raw | failed
+    when: not npm_path_detected_raw is failed
 
   - debug: msg="{{ npm_path_detected_raw }} thus npm global is {{npm_is_global}}"
-    when: not npm_path_detected_raw | failed
+    when: not npm_path_detected_raw is failed
 
 # Usage example:
 #    - name: Install ember-cli
