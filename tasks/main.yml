@@ -5,4 +5,4 @@
     when: ansible_os_family != "Windows"
 
   - include: tasks_nvm_win.yml
-    when: ansible_os_family == "Windows"  
+    when: ansible_os_family == "Windows"
