@@ -12,5 +12,8 @@
 
   roles:
      - {
-        role: "sa-node-nvm"
+        role: "sa-node-nvm",
+        deploy_user: "{{ansible_user_id}}",
+        option_nodejs_install_with_nvm: true,
+        nodejs_version: "11.15.0"
        }
